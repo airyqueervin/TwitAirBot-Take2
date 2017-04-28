@@ -1,4 +1,11 @@
 const mongoose = require('mongoose');
-const connection = mongoose.connect('mongodb://localhost/twitairbot');
+mongoose.connect('mongodb://localhost/twitairbot');
 
-module.exports = connection;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('CONNECT TO THE TwitAirBot DATABASE')
+});
+
+module.exports = db;
