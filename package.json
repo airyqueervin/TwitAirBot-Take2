@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js",
-    "build": "webpack"
+    "build:watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,21 @@
   },
   "homepage": "https://github.com/airyqueervin/hrsf75-mvp#readme",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "webpack": "^2.4.1"
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongoose": "^4.9.6"
+    "mongoose": "^4.9.6",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1"
   }
 }
