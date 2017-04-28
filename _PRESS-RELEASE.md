@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  TwitAirBot will allow you to customozie automatic responses when people tweet at you. You'll also be able to utilze the bot to search twitter and like certain tweets on your behalf.
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  When you're too busy with other social media, TwitAirBot will manage your account.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This product will allow you to maintain an online presence on Twitter while still mantaining your busy lifestyle. Keeping up with tons of social media accounts can be hard. TwitAirBot makes it easier for you to manage your Twitter accounts by favorting tweets, responding back to people who tweet at you, and even just communicate with your fellow subrscibers while vacationing in the bahamas. 
 
 ## Problem ##
   > Describe the problem your product solves.
+  We all have so many social media accounts and it's hard to keep track of every subriber and message. TwitAirBot will take care of your subscribers like your own personal assistant. 
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  TwitAirBot will allow users to keep up an online prescene when they are too busy or on vacation. You have the freedom live your life in multiple places at once. When you interact with TwitAirBot, you'll be able to set up messages easlily and favorite tweets that interest you. You have more control and a simple interface.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  TwitAirBot is an extension of your life. Manage your life easier with TwitAirBot.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Simple go to the url and login with your twitter account and that's it! Start using TwitAirBot today.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  I was addicated to twitter and my wife was threatening to leave me. I discovered TwitAirBot and it was life changing. I was able to maintain my subsribers and favorite tweets without being on the computer. I was able to raise an entire family without any hinderance. It gave me more time to spend with my kids and take my wife out to a nice dinner. Thank you TwitAirBot. You saved my marriage and my family.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  TwitAirBot is here to make your life more known and easier. So head on over to TwitAirBot and get started by logging in with your twitter account. Sign up or log in and start tweeting today!
