@@ -9,7 +9,8 @@ class About extends React.Component {
   render() {
     return (
       <div>
-       <h2>Live About Component</h2>
+        <h2>About</h2>
+        <p> Here is a cool way for me to automate my twitter responses. Yay this is going to be great!!</p>
       </div>
     );
   }

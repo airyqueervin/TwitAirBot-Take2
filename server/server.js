@@ -36,7 +36,7 @@ const latestMentions = [];
 const idStrings = {};
 
 const getMentions = () => {
-  twit.get('statuses/mentions_timeline.json', { count: 10}, (err, data, res) => {
+  twit.get('statuses/mentions_timeline.json', { count: 10 }, (err, data, res) => {
     if (err) {
       console.log('ERROR OCCURED WITH TWIT GET', err);
     }
