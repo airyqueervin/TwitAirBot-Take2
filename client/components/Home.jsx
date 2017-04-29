@@ -1,15 +1,23 @@
 import React from 'react';
+import axios from 'axios';
+import TweetList from './TweetList.jsx';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+      tweets: []
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.runBot = this.runBot.bind(this);
     this.stopBot = this.stopBot.bind(this);
     this.sendTweet = this.sendTweet.bind(this);
+
+    this.getTweets = this.getTweets.bind(this);
+    this.getTweets();
   }
 
   handleChange(e) {
@@ -34,12 +42,24 @@ class Home extends React.Component {
     console.log('stop was clicked');
   }
 
+  getTweets() {
+    axios.get('/api/tweets')
+      .then(({ data }) => {
+        this.setState({
+          tweets: data
+        });
+      })
+      .catch(err => {
+        console.error("Fucking thing failed", err);
+      });
+  }
+
   
 
   render() {
     return (
       <div>
-       <h2>Live Home Component</h2>
+       <h2>Home Of The T.A.B</h2>
         <form onSubmit={this.handleSubmit}>
           What do you want your bot to say?<br/>          
           <input type="text" placeholder="Enter A Friednly Tweet" value={this.state.value} onChange={this.handleChange} />
@@ -47,8 +67,9 @@ class Home extends React.Component {
         </form>
         <br/>
         <button onClick={ () => {this.sendTweet(this.state.value)} }>Send Single Tweet</button>
-        <button onClick={this.stopBot}>Stop Bot</button>
         <button onClick={this.runBot}>Start Auto Tweet</button>
+        <button onClick={this.stopBot}>Stop Bot</button>
+        <TweetList tweets={this.state.tweets} />
       </div>
     );
   }
