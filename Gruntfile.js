@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         multiple: {
           command: [
             'sudo mongod',
+            'npm run seed',
             'npm run build:watch',
             'grunt nodemon'
           ].join('&')
