@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/bundles', express.static(path.join(__dirname, '../bundles')));
 
-// app.use('/', router);
+app.use('/api', router);
 
 app.get('/test', (req, res) => {
   res.send('Hello TwitAirBot is starting up soon!')
