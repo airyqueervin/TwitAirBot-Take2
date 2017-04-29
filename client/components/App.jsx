@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import React from 'react';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       <h1>Testing App</h1>
+       <h2>Live App Component</h2>
       </div>
     );
   }

@@ -10,7 +10,10 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>Hello From TwitAirBot React page</div>
+      <div>
+        <h1>Welcome to TwitAirBot!</h1>
+        <App />
+      </div>
     )
   }
 }
