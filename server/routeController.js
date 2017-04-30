@@ -4,7 +4,7 @@ const pingTwitter = require('./server.js');
 
 
 const getTweets = (req, res) => {
-  pingTwitter.getMentions();
+  // pingTwitter.getMentions();
   BotTweet.find()
   .then(data => {
     res.send(data);
@@ -16,6 +16,7 @@ const getTweets = (req, res) => {
 };
 
 const addNewTweet = (req, res) => {
+  // pingTwitter.getMentions();
   console.log('REQUEST IN addNewTweet:', req.body);
   const botTweet = new BotTweet({
     id_str: req.body.id_str,
@@ -25,7 +26,24 @@ const addNewTweet = (req, res) => {
   });
   botTweet.save()
     .then(() => {
-      // getTweets(req, res);
+    })
+    .catch(err => {
+      console.error('Error adding botTweet', err);
+      res.status(501).send(err);
+    });
+}
+
+const postTweet = (req, res) => {
+  pingTwitter.getMentions(req.body.value);
+  console.log('REQUEST IN postTweet:', req.body);
+  const botTweet = new BotTweet({
+    id_str: req.body.id_str,
+    name: req.body.name,
+    screen_name: req.body.screen_name,
+    text: req.body.text
+  });
+  botTweet.save()
+    .then(() => {
     })
     .catch(err => {
       console.error('Error adding botTweet', err);
@@ -35,3 +53,4 @@ const addNewTweet = (req, res) => {
 
 module.exports.getTweets = getTweets;
 module.exports.addNewTweet = addNewTweet;
+module.exports.postTweet = postTweet;

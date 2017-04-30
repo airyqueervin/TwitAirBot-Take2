@@ -34,8 +34,15 @@ class Home extends React.Component {
     console.log('run was clicked');
   }
 
-  sendTweet(val) {
-    alert(`This message was sent: ${val}`);
+  sendTweet(tweet) {
+    // alert(`This message was sent: ${val}`);
+    axios.post('/api/twitter', tweet)
+      .then(({ data }) => {
+        alert('Check Twitter for post!', tweet.value)
+      })
+      .catch(err => {
+        console.error("Fucking other thing failed", err);
+      });
   }
 
   stopBot() {
@@ -66,7 +73,7 @@ class Home extends React.Component {
           <input type="submit"/>
         </form>
         <br/>
-        <button onClick={ () => {this.sendTweet(this.state.value)} }>Send Single Tweet</button>
+        <button onClick={ () => {this.sendTweet(this.state)} }>Send Single Tweet</button>
         <button onClick={this.runBot}>Start Auto Tweet</button>
         <button onClick={this.stopBot}>Stop Bot</button>
         <TweetList tweets={this.state.tweets} getTweets={this.getTweets} />

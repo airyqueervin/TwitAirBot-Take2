@@ -36,7 +36,7 @@ const twit = new Twitter({
 const latestMentions = [];
 const idStrings = {};
 
-const getMentions = () => {
+const getMentions = (message) => {
   twit.get('statuses/mentions_timeline.json', { count: 10 })
     .catch(err => {
       console.log('caught error trying to get mentions tweets', err) 
@@ -52,6 +52,7 @@ const getMentions = () => {
             text: tweet.text
           };
           latestMentions.push(tweetObj);
+          replyToMentions(message);
         }
     })
   })
@@ -67,9 +68,10 @@ const getMentions = () => {
   })
 };
 
-const replyToMentions = () => {
+const replyToMentions = (message) => {
   latestMentions.forEach(mention => {
-    let responseTweet = `Hello @${mention.user} Your twit bot is working sir!
+    // let responseTweet = `Hello @${mention.user} ${message}
+    let responseTweet = `Hello @airyque ${message}
     -Your Fav TwitAirBot at your service`;
     twit.post('statuses/update', {status: responseTweet}, (err, tweet, res) => {
       if (err) {
