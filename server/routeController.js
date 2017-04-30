@@ -16,15 +16,16 @@ const getTweets = (req, res) => {
 };
 
 const addNewTweet = (req, res) => {
+  console.log('REQUEST IN addNewTweet:', req.body);
   const botTweet = new BotTweet({
     id_str: req.body.id_str,
-    name: req.body.user.name,
-    screen_name: req.body.user.screen_name,
+    name: req.body.name,
+    screen_name: req.body.screen_name,
     text: req.body.text
   });
   botTweet.save()
     .then(() => {
-      getTweets(req, res);
+      // getTweets(req, res);
     })
     .catch(err => {
       console.error('Error adding botTweet', err);

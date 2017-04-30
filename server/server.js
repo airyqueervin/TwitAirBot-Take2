@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const Twitter = require('twitter');
 const twitKeys = require('../config/config.js');
+const axios = require('axios');
 
 const app = express();
 
@@ -46,20 +47,25 @@ const getMentions = () => {
           idStrings[tweet.id_str] = true;
           let tweetObj = {
             id_string: tweet.id_str,
-            user: tweet.user.screen_name,
-            text: tweet.text,
-            name: tweet.user.name
+            name: tweet.user.name,
+            screen_name: tweet.user.screen_name,
+            text: tweet.text
           };
           latestMentions.push(tweetObj);
         }
     })
   })
   .then(() => {
+    axios.post('http://localhost:3000/api/tweets', latestMentions[0])
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
     console.log('LATEST MENTIONS', latestMentions);
   })
 };
-
-// getMentions();
 
 const replyToMentions = () => {
   latestMentions.forEach(mention => {
