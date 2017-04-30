@@ -11,6 +11,7 @@ class TweetList extends React.Component {
       <div>
         <br/>
         <strong>Tweets:</strong>
+        <button onClick={this.props.getTweets}>Get Activity Log</button>
         {this.props.tweets.length ? this.props.tweets.map((tweet) => <Tweet key={Math.random() * 100000} tweet={tweet} />) : null}
       </div>
     )

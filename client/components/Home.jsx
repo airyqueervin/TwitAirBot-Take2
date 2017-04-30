@@ -17,7 +17,7 @@ class Home extends React.Component {
     this.sendTweet = this.sendTweet.bind(this);
 
     this.getTweets = this.getTweets.bind(this);
-    this.getTweets();
+    // this.getTweets();
   }
 
   handleChange(e) {
@@ -69,7 +69,7 @@ class Home extends React.Component {
         <button onClick={ () => {this.sendTweet(this.state.value)} }>Send Single Tweet</button>
         <button onClick={this.runBot}>Start Auto Tweet</button>
         <button onClick={this.stopBot}>Stop Bot</button>
-        <TweetList tweets={this.state.tweets} />
+        <TweetList tweets={this.state.tweets} getTweets={this.getTweets} />
       </div>
     );
   }

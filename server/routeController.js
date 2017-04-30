@@ -1,7 +1,10 @@
 const BotTweet = require('./db/BotTweet/BotTweet.js');
 const db = require('./db/index.js');
+const pingTwitter = require('./server.js');
+
 
 const getTweets = (req, res) => {
+  pingTwitter.getMentions();
   BotTweet.find()
   .then(data => {
     res.send(data);

@@ -36,25 +36,27 @@ const latestMentions = [];
 const idStrings = {};
 
 const getMentions = () => {
-  twit.get('statuses/mentions_timeline.json', { count: 10 }, (err, data, res) => {
-    if (err) {
-      console.log('ERROR OCCURED WITH TWIT GET', err);
-    }
-    data.forEach((tweet, i) => {
-      if (i === 0) {
-        idStrings[tweet.id_str] = true;
-        let tweetObj = {};
-        tweetObj.user = tweet.user.screen_name;
-        tweetObj.text = tweet.text;
-        latestMentions.push(tweetObj);
-        // replyToMentions();  
-      } else {
-        console.log('Twitter Data', data);
-      }
-    });
-    console.log('ID STRINGS', idStrings);
+  twit.get('statuses/mentions_timeline.json', { count: 10 })
+    .catch(err => {
+      console.log('caught error trying to get mentions tweets', err) 
+    })
+    .then(result => {
+      result.forEach((tweet, i) => {
+        if (i === 0) {
+          idStrings[tweet.id_str] = true;
+          let tweetObj = {
+            id_string: tweet.id_str,
+            user: tweet.user.screen_name,
+            text: tweet.text,
+            name: tweet.user.name
+          };
+          latestMentions.push(tweetObj);
+        }
+    })
+  })
+  .then(() => {
     console.log('LATEST MENTIONS', latestMentions);
-  });
+  })
 };
 
 // getMentions();
@@ -73,3 +75,6 @@ const replyToMentions = () => {
     });
   });
 };
+
+module.exports.getMentions = getMentions;
+module.exports.replyToMentions = replyToMentions;
