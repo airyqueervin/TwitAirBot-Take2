@@ -66,17 +66,19 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-       <h2>Home Of The T.A.B</h2>
-        <form onSubmit={this.handleSubmit}>
-          What do you want your bot to say?<br/>          
-          <input type="text" placeholder="Enter A Friednly Tweet" value={this.state.value} onChange={this.handleChange} />
-          <input type="submit"/>
-        </form>
-        <br/>
-        <button onClick={ () => {this.sendTweet(this.state)} }>Send Single Tweet</button>
-        <button onClick={this.runBot}>Start Auto Tweet</button>
-        <button onClick={this.stopBot}>Stop Bot</button>
-        <TweetList tweets={this.state.tweets} getTweets={this.getTweets} />
+        <div className="jumbotron">
+        <h2>Home Of The T.A.B</h2>
+          <form onSubmit={this.handleSubmit}>
+            What do you want your bot to say?<br/>          
+            <input type="text" placeholder="Enter A Friendly Tweet" value={this.state.value} onChange={this.handleChange} />
+            <input className="btn btn-warning" type="submit"/>
+          </form>
+          <br/>
+          <button className="btn btn-success" onClick={ () => {this.sendTweet(this.state)} }>Send Single Tweet</button>
+          <button className="btn btn-primary" onClick={this.runBot}>Start Auto Tweet</button>
+          <button className="btn btn-danger" onClick={this.stopBot}>Stop Bot</button>
+          <TweetList tweets={this.state.tweets} getTweets={this.getTweets} />
+        </div>
       </div>
     );
   }

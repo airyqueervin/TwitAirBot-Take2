@@ -10,9 +10,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1 id="title">Welcome to TwitAirBot</h1>
-        <Nav pills className="nav">
+        <Nav pills className="well well-sm">
           <NavItem className="navItem home">
             <NavLink><Link to="/home">Home</Link></NavLink>
           </NavItem>
